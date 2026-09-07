@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.*;
+
 
 public class Agenda {
     private List<Contacto> contactos;
@@ -86,6 +88,7 @@ public class Agenda {
     public boolean existeContacto(Contacto c) {
         for (Contacto contacto : contactos) {
             if (contacto.getNombre().equalsIgnoreCase(c.getNombre())) {
+                System.out.println("El contacto ya existe.");
                 return true;
             }
         }

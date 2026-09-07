@@ -5,11 +5,12 @@ Proyecto desarrollado por un equipo de **6 personas** durante el segundo hackath
 
 Integrantes:
 - Luis Angel 
-- Fernanda
+- Carlos Alfredo
 - Homar
 - Jose
+- Diana Cruz Delgado
 - Diana
-- Jessica Angelles Resendiz Arroyo
+- Jessica Angeles Resendiz Arroyo
 
 
 ---
