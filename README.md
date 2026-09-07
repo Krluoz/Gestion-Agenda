@@ -8,7 +8,7 @@ Integrantes:
 - Fernanda
 - Homar
 - Jose
-- Diana
+- Diana Cruz Delgado
 - Jessica
 
 
