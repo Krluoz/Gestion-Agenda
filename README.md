@@ -9,7 +9,7 @@ Integrantes:
 - Homar
 - Jose
 - Diana
-- Jessica
+- Jessica Angelles Resendiz Arroyo
 
 
 ---
