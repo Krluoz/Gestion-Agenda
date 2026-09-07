@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -57,6 +56,20 @@ public class Agenda {
         }
     }
 
+
+    // ==========================================
+    // APARTADO: VALIDAR SI EXISTE O NO EL CONTACTO (Carlos)
+    // ==========================================
+    public boolean existeContacto(Contacto c) {
+        for (Contacto contacto : contactos) {
+            if (contacto.getNombre().equalsIgnoreCase(c.getNombre())) {
+                System.out.println("El contacto ya existe.");
+                return true;
+            }
+        }
+        System.out.println("El contacto no existe.");
+        return false;
+    }
 
     
   // ==========================================
