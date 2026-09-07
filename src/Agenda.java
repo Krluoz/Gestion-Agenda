@@ -21,4 +21,9 @@ public class Agenda {
         }
         return añadido;
     }
+    
+    // Indica cuántos contactos más se pueden ingresar
+    public int espacioLibres() {
+        return tamanoMaximo - contactos.size();
+    }
 }
