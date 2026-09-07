@@ -4,7 +4,7 @@
 Proyecto desarrollado por un equipo de **6 personas** durante el segundo hackathon del bootcamp.
 
 Integrantes:
-- Luis Angel 
+- Luis Angel Hernández Martínez
 - Homar de Jesús Carmona
 - Carlos Alfredo Franco Ordoñez
 - Jose
