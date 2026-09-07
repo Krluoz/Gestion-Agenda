@@ -4,6 +4,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Agenda {
+    public static void main(String[] args) {
+
     private List<Contacto> contactos;
     private int tamanioMaximo;
 
@@ -71,7 +73,7 @@ public class Agenda {
         return false;
     }
 
-    
+
   // ==========================================
     // APARTADO: Agenda llena (Diana C)
     // ==========================================
@@ -83,3 +85,4 @@ public boolean agendaLlena() {
 }
 
 }
+    }
