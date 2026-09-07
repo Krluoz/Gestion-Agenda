@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Agenda {
     private List<Contacto> contactos;
     private int tamanioMaximo;
@@ -17,21 +20,22 @@ public class Agenda {
         this.contactos = new ArrayList<>();
     }
 
-    // ==========================================
-    // APARTADO: BUSCA CONTACTO (Jessica)
-    // ==========================================
-    public void buscaContacto(String nombre) {
-        boolean encontrado = false;
-        for (Contacto c : contactos) {
-            if (c != null && c.getNombre().equalsIgnoreCase(nombre)) {
-                System.out.println("Contacto encontrado:");
-                System.out.println("Nombre: " + c.getNombre() + " | Teléfono: " + c.getTelefono());
-                encontrado = true;
-                break;
-            }
+    // ===== TAREA 1: añadirContacto =====
+    // Añade un contacto a la agenda si hay hueco y si no existe ya.
+    // No se pueden duplicar nombres, aunque tengan distinto teléfono
+    // (esto lo garantiza el Set gracias al equals()/hashCode() de Contacto).
+    public boolean añadirContacto(Contacto c) {
+        if (agendaLlena()) {
+            System.out.println("No se pueden añadir más contactos, la agenda está llena.");
+            return false;
         }
-        if (!encontrado) {
-            System.out.println("No se encontró ningún contacto con el nombre: " + nombre);
+        // Set.add() devuelve false automáticamente si ya existe un elemento "igual"
+        boolean añadido = contactos.add(c);
+        if (añadido) {
+            System.out.println("Contacto añadido correctamente.");
+        } else {
+            System.out.println("Ya existe un contacto con el nombre '" + c.getNombre() + "'. No se puede duplicar.");
         }
+        return añadido;
     }
 }
