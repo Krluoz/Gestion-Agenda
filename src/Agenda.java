@@ -1,13 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.Scanner;
+
 
 public class Agenda {
-    public static void main(String[] args) {
 
     private List<Contacto> contactos;
     private int tamanioMaximo;
+
+    public void showContactos() {
+        for (int i = 0; i < contactos.size(); i++) {
+            Contacto c = contactos.get(i);
+            System.out.println((i + 1) + ". " + c.getNombre() + " - " + c.getTelefono());
+        }
+    }
 
     // Constructor por defecto (capacidad de 10)
     public Agenda() {
@@ -42,9 +47,9 @@ public class Agenda {
 
     // Indica cuántos contactos más se pueden ingresar
     public int espacioLibres() {
-        return tamanoMaximo - contactos.size();
+        return tamanioMaximo - contactos.size();
     }
-}
+
     // ==========================================
     // APARTADO: BUSCA CONTACTO (Jessica)
     // ==========================================
@@ -79,38 +84,44 @@ public class Agenda {
     }
 
 
-  // ==========================================
+    // ==========================================
     // APARTADO: Agenda llena (Diana C)
     // ==========================================
 
-public boolean agendaLlena() {
+    public boolean agendaLlena() {
 
-    return contactos.size() >= tamanioMaximo;
+        return contactos.size() >= tamanioMaximo;
 
-}
-
-}
-<<<<<<< HEAD
-=======
+    }
 
 
     // ===== TAREA : eliminarContacto(Contacto C) =====
     //Elimina el contacto de la agenda
     //Indica si se ha eliminado o no de la agenda
+
     public void eliminarContacto() {
         if (contactos.isEmpty()) {
             System.out.println("No hay contactos para eliminar.");
             return;
         }
-        showContactos(); //funcion mostrar contactos
-        System.out.print("Enter the number of the contact to delete: ");
-        int index = Integer.parseInt(scanner.nextLine()) - 1;
 
-        if (index >= 0 && index < contactos.size()) {
-            contactos.remove(index);
-            System.out.println("Contacto eliminado.");
-        } else {
-            System.out.println("Número no válido.");
+
+        //funcion mostrar contactos
+        showContactos();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of the contact to delete: ");
+        try {
+            int index = Integer.parseInt(scanner.nextLine()) - 1;
+
+            if (index >= 0 && index < contactos.size()) {
+                contactos.remove(index);
+                System.out.println("Contacto eliminado.");
+            } else {
+                System.out.println("Número no válido.");
+            }
+        }catch (NumberFormatException e){
+            System.out.println("Debes ingresar un número.");
         }
->>>>>>> 368a719df56c952ff22b45851180d0e431c82d37
     }
+
+}
