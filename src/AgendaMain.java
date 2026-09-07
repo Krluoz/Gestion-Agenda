@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class AgendaMain {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Main {
                     System.out.print("Nombre: ");
                     String nombre = sc.nextLine();
                     System.out.print("Teléfono: ");
-                    String telefono = sc.nextLine();
+                    String telefono = sc.next();
                     agenda.añadirContacto(new Contacto(nombre, telefono));
                     break;
 
