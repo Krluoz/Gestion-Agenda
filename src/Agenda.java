@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -38,6 +37,51 @@ public class Agenda {
         }
         return añadido;
     }
+
+    // ==========================================
+    // APARTADO: BUSCA CONTACTO (Jessica)
+    // ==========================================
+    public void buscaContacto(String nombre) {
+        boolean encontrado = false;
+        for (Contacto c : contactos) {
+            if (c != null && c.getNombre().equalsIgnoreCase(nombre)) {
+                System.out.println("Contacto encontrado:");
+                System.out.println("Nombre: " + c.getNombre() + " | Teléfono: " + c.getTelefono());
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se encontró ningún contacto con el nombre: " + nombre);
+        }
+    }
+
+
+    // ==========================================
+    // APARTADO: VALIDAR SI EXISTE O NO EL CONTACTO (Carlos)
+    // ==========================================
+    public boolean existeContacto(Contacto c) {
+        for (Contacto contacto : contactos) {
+            if (contacto.getNombre().equalsIgnoreCase(c.getNombre())) {
+                System.out.println("El contacto ya existe.");
+                return true;
+            }
+        }
+        System.out.println("El contacto no existe.");
+        return false;
+    }
+
+    
+  // ==========================================
+    // APARTADO: Agenda llena (Diana C)
+    // ==========================================
+
+public boolean agendaLlena() {
+
+    return contactos.size() >= tamanioMaximo;
+
+}
+
 }
 
 
