@@ -56,4 +56,17 @@ public class Agenda {
             System.out.println("No se encontró ningún contacto con el nombre: " + nombre);
         }
     }
+
+
+    
+  // ==========================================
+    // APARTADO: Agenda llena (Diana C)
+    // ==========================================
+
+public boolean agendaLlena() {
+
+    return contactos.size() >= tamanioMaximo;
+
+}
+
 }
