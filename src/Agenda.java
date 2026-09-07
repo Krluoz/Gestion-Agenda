@@ -20,15 +20,11 @@ public class Agenda {
     }
 
     // ===== TAREA 1: añadirContacto =====
-    // Añade un contacto a la agenda si hay hueco y si no existe ya.
-    // No se pueden duplicar nombres, aunque tengan distinto teléfono
-    // (esto lo garantiza el Set gracias al equals()/hashCode() de Contacto).
     public boolean añadirContacto(Contacto c) {
         if (agendaLlena()) {
             System.out.println("No se pueden añadir más contactos, la agenda está llena.");
             return false;
         }
-        // Set.add() devuelve false automáticamente si ya existe un elemento "igual"
         boolean añadido = contactos.add(c);
         if (añadido) {
             System.out.println("Contacto añadido correctamente.");
@@ -40,9 +36,9 @@ public class Agenda {
 
     // Indica cuántos contactos más se pueden ingresar
     public int espacioLibres() {
-        return tamanoMaximo - contactos.size();
+        return tamanioMaximo - contactos.size();
     }
-}
+
     // ==========================================
     // APARTADO: BUSCA CONTACTO (Jessica)
     // ==========================================
@@ -61,7 +57,6 @@ public class Agenda {
         }
     }
 
-
     // ==========================================
     // APARTADO: VALIDAR SI EXISTE O NO EL CONTACTO (Carlos)
     // ==========================================
@@ -76,15 +71,31 @@ public class Agenda {
         return false;
     }
 
-    
-  // ==========================================
+    // ==========================================
     // APARTADO: Agenda llena (Diana C)
     // ==========================================
+    public boolean agendaLlena() {
+        return contactos.size() >= tamanioMaximo;
+    }
 
-public boolean agendaLlena() {
+    // ==========================================
+    // APARTADO: ELIMINAR CONTACTO
+    // ==========================================
+    public boolean eliminarContacto(Contacto c) {
+        if (contactos.isEmpty()) {
+            System.out.println("No hay contactos para eliminar.");
+            return false;
+        }
 
-    return contactos.size() >= tamanioMaximo;
+        boolean eliminado = contactos.removeIf(contacto ->
+                contacto.getNombre().equalsIgnoreCase(c.getNombre())
+        );
 
-}
-
+        if (eliminado) {
+            System.out.println("Contacto eliminado de la agenda.");
+        } else {
+            System.out.println("No se encontró el contacto para eliminar.");
+        }
+        return eliminado;
+    }
 }
