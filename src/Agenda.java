@@ -39,3 +39,24 @@ public class Agenda {
         return añadido;
     }
 }
+
+
+    // ===== TAREA : eliminarContacto(Contacto C) =====
+    //Elimina el contacto de la agenda
+    //Indica si se ha eliminado o no de la agenda
+    public void eliminarContacto() {
+        if (contactos.isEmpty()) {
+            System.out.println("No hay contactos para eliminar.");
+            return;
+        }
+        showContactos(); //funcion mostrar contactos
+        System.out.print("Enter the number of the contact to delete: ");
+        int index = Integer.parseInt(scanner.nextLine()) - 1;
+
+        if (index >= 0 && index < contactos.size()) {
+            contactos.remove(index);
+            System.out.println("Contacto eliminado.");
+        } else {
+            System.out.println("Número no válido.");
+        }
+    }
