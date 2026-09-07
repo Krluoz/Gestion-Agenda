@@ -1,7 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Agenda {
+    private List<Contacto> contactos;
+    private int tamanioMaximo;
+
+    // Constructor por defecto (capacidad de 10)
+    public Agenda() {
+        this.tamanioMaximo = 10;
+        this.contactos = new ArrayList<>();
+    }
+
+    // Constructor con capacidad personalizada
+    public Agenda(int tamanio) {
+        this.tamanioMaximo = tamanio;
+        this.contactos = new ArrayList<>();
+    }
 
     // ===== TAREA 1: añadirContacto =====
     // Añade un contacto a la agenda si hay hueco y si no existe ya.
