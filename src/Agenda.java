@@ -38,4 +38,22 @@ public class Agenda {
         }
         return añadido;
     }
+
+    // ==========================================
+    // APARTADO: BUSCA CONTACTO (Jessica)
+    // ==========================================
+    public void buscaContacto(String nombre) {
+        boolean encontrado = false;
+        for (Contacto c : contactos) {
+            if (c != null && c.getNombre().equalsIgnoreCase(nombre)) {
+                System.out.println("Contacto encontrado:");
+                System.out.println("Nombre: " + c.getNombre() + " | Teléfono: " + c.getTelefono());
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se encontró ningún contacto con el nombre: " + nombre);
+        }
+    }
 }
