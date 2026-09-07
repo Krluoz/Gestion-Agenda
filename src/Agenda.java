@@ -99,7 +99,7 @@ public class Agenda {
     //Elimina el contacto de la agenda
     //Indica si se ha eliminado o no de la agenda
 
-    public void eliminarContacto() {
+    public void eliminarContacto(Contacto contacto) {
         if (contactos.isEmpty()) {
             System.out.println("No hay contactos para eliminar.");
             return;
@@ -123,5 +123,4 @@ public class Agenda {
             System.out.println("Debes ingresar un número.");
         }
     }
-
 }

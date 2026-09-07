@@ -16,7 +16,7 @@ public class AgendaMain {
                     System.out.print("Nombre: ");
                     String nombre = sc.nextLine();
                     System.out.print("Teléfono: ");
-                    Long telefono = sc.nextLong();
+                    String telefono = sc.next();
                     agenda.añadirContacto(new Contacto(nombre, telefono));
                     break;
 
