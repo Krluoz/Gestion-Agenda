@@ -42,6 +42,21 @@ public class Agenda {
     public int espacioLibres() {
         return tamanoMaximo - contactos.size();
     }
+
+    // ==========================================
+    // APARTADO: LISTAR CONTACTOS
+    // ==========================================
+    public void listarContactos() {
+        if (contactos.isEmpty()) {
+            System.out.println("La agenda está vacía. No hay contactos para mostrar.");
+            return;
+        }
+
+        System.out.println("===== LISTA DE CONTACTOS =====");
+        for (int i = 0; i < contactos.size(); i++) {
+            System.out.println((i + 1) + ". " + contactos.get(i));
+        }
+    }
 }
     // ==========================================
     // APARTADO: BUSCA CONTACTO (Jessica)
