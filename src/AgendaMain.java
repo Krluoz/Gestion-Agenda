@@ -13,16 +13,13 @@ public class AgendaMain {
 
             switch (opcion) {
                 case 1: // Añadir contacto
-                    System.out.print("Nombre: ");
-                    String nombre = sc.nextLine();
-                    System.out.print("Teléfono: ");
-                    String telefono = sc.next();
+                    String nombre = leerTextoNoVacio(sc, "Nombre: ");
+                    String telefono = leerTextoNoVacio(sc, "Teléfono: ");
                     agenda.añadirContacto(new Contacto(nombre, telefono));
                     break;
 
                 case 2: // Existe contacto
-                    System.out.print("Nombre a comprobar: ");
-                    String nombreExiste = sc.nextLine();
+                    String nombreExiste = leerTextoNoVacio(sc, "Nombre a comprobar: ");
                     boolean existe = agenda.existeContacto(new Contacto(nombreExiste, ""));
                     System.out.println(existe ? "El contacto existe." : "El contacto no existe.");
                     break;
@@ -32,14 +29,12 @@ public class AgendaMain {
                     break;
 
                 case 4: // Buscar contacto
-                    System.out.print("Nombre a buscar: ");
-                    String nombreBuscar = sc.nextLine();
+                    String nombreBuscar = leerTextoNoVacio(sc, "Nombre a buscar: ");
                     agenda.buscaContacto(nombreBuscar);
                     break;
 
                 case 5: // Eliminar contacto
-                    System.out.print("Nombre a eliminar: ");
-                    String nombreEliminar = sc.nextLine();
+                    String nombreEliminar = leerTextoNoVacio(sc, "Nombre a eliminar: ");
                     agenda.eliminarContacto(new Contacto(nombreEliminar, ""));
                     break;
 
@@ -66,9 +61,15 @@ public class AgendaMain {
 
     private static Agenda crearAgenda(Scanner sc) {
         System.out.print("¿Quieres indicar un tamaño para la agenda? (s/n): ");
-        String resp = sc.nextLine();
+        String resp = sc.nextLine().trim();
         if (resp.equalsIgnoreCase("s")) {
-            int tam = leerEntero(sc, "Tamaño de la agenda: ");
+            int tam;
+            do {
+                tam = leerEntero(sc, "Tamaño de la agenda (mínimo 1): ");
+                if (tam <= 0) {
+                    System.out.println("El tamaño debe ser mayor que 0.");
+                }
+            } while (tam <= 0);
             return new Agenda(tam);
         }
         System.out.println("Se usará el tamaño por defecto (10).");
@@ -97,5 +98,17 @@ public class AgendaMain {
         int valor = sc.nextInt();
         sc.nextLine(); // limpiar el salto de línea
         return valor;
+    }
+
+    private static String leerTextoNoVacio(Scanner sc, String mensaje) {
+        String texto;
+        do {
+            System.out.print(mensaje);
+            texto = sc.nextLine().trim();
+            if (texto.isEmpty()) {
+                System.out.println("Este campo no puede estar vacío.");
+            }
+        } while (texto.isEmpty());
+        return texto;
     }
 }
