@@ -5,8 +5,8 @@ Proyecto desarrollado por un equipo de **6 personas** durante el segundo hackath
 
 Integrantes:
 - Luis Angel 
-- Carlos Alfredo
-- Homar
+- Homar de Jesús Carmona
+- Carlos Alfredo Franco Ordoñez
 - Jose
 - Diana Cruz Delgado
 - Jessica Angeles Resendiz Arroyo
